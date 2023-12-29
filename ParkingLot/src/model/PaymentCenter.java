@@ -1,13 +1,16 @@
 package model;
 import enums.PaymentMode;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
 public class PaymentCenter {
     double totalRevenue;
 
     public Invoice generateInvoice(Ticket ticket) {
         Invoice invoice = new Invoice(ticket);
         ticket.exitTime = LocalDateTime.now();
-        long hours = ChronoUnit.HOURS.between(entryTime, exitTime);
+        long hours = ChronoUnit.HOURS.between(ticket.entryTime, ticket.exitTime);
         double fee = 5 * hours;
         invoice.setAmount(fee);
         ticket.getSpot().setVehicle(null);
@@ -22,5 +25,6 @@ public class PaymentCenter {
         totalRevenue += payment.getAmount();
         return payment;
     }
+
 
 }

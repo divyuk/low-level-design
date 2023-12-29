@@ -20,6 +20,14 @@ public abstract class Payment {
         this.paymentStatus = PaymentStatus.PENDING;
     }
 
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
     public static Payment createPayment(Invoice invoice , PaymentMode paymentMode){
         Payment payment;
         switch (paymentMode) {
