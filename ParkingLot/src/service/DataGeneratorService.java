@@ -25,7 +25,7 @@ public class DataGeneratorService {
     }
 
     public ParkingFloor generateParkingFloor() {
-        int spotCount = getRandomNumber(100, 200);
+        int spotCount = getRandomNumber(50, 100);
         ParkingFloor parkingFloor = new ParkingFloor(spotCount);
         for (int i = 0; i < spotCount; i++) {
             parkingFloor.addSpot(generateSpot());

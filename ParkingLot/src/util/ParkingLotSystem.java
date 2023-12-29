@@ -8,8 +8,9 @@ import java.util.List;
 
 public class ParkingLotSystem {
 
-    ParkingLot parkingLot;
-    private DataGeneratorService dataGeneratorService;
+    private final DataGeneratorService dataGeneratorService = new DataGeneratorService();
+    // create parking lot
+    ParkingLot parkingLot = new ParkingLot(dataGeneratorService.generateAddress());
 
     public void runningParkingLotSystem() {
         System.out.println("Parking------->");
@@ -20,8 +21,7 @@ public class ParkingLotSystem {
     }
 
     public void setupParkingLot() {
-        // create parking lot
-        parkingLot = new ParkingLot(dataGeneratorService.generateAddress());
+
         // create 2 parking floors
         parkingLot.addFloor(dataGeneratorService.generateParkingFloor());
         parkingLot.addFloor(dataGeneratorService.generateParkingFloor());
@@ -29,15 +29,17 @@ public class ParkingLotSystem {
         parkingLot.addEntryGates(3);
         // create 3 exit gates
         parkingLot.addExitGates(3);
+
     }
 
     public void runSimulation() {
         List<Ticket> tickets = new ArrayList<>();
         // create many vehicles and assign parking spots
         // after the lot is full we should not be able to park any more vehicles
-        for (int i = 0; i < 500; i++) {
+        for (int i = 0; i < 49; i++) {
             // get random vehicle type
             Vehicle vehicle = dataGeneratorService.generateVehicle();
+
             Ticket ticket = parkingLot.generateTicket(vehicle);
             if (ticket == null) {
                 System.out.println(i + " Parking lot is full");
@@ -53,7 +55,7 @@ public class ParkingLotSystem {
             Invoice invoice = parkingLot.getPaymentCenter().generateInvoice(ticket);
             System.out.println("Ticket: " + ticket);
             System.out.println("Spot: " + ticket.getSpot());
-            System.out.println("Invoice: " + invoice);
+            System.out.println("Invoice: " + invoice.getAmount());
             Payment payment = parkingLot.getPaymentCenter().payInvoice(invoice,
                     dataGeneratorService.generatePaymentMode());
             System.out.println("Payment: " + payment);

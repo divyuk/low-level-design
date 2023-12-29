@@ -2,7 +2,7 @@ package model;
 import enums.PaymentMode;
 
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
+//import java.time.temporal.ChronoUnit;
 
 public class PaymentCenter {
     double totalRevenue;
@@ -10,7 +10,9 @@ public class PaymentCenter {
     public Invoice generateInvoice(Ticket ticket) {
         Invoice invoice = new Invoice(ticket);
         ticket.exitTime = LocalDateTime.now();
-        long hours = ChronoUnit.HOURS.between(ticket.entryTime, ticket.exitTime);
+//        System.out.println(ticket.entryTime + " " + ticket.exitTime);
+//        long hours = ChronoUnit.HOURS.between(ticket.entryTime, ticket.exitTime);
+        long hours = 2;
         double fee = 5 * hours;
         invoice.setAmount(fee);
         ticket.getSpot().setVehicle(null);
