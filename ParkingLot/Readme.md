@@ -20,4 +20,4 @@ Imagine a parking lot in an urban area with multiple floors and numerous parking
 10. The system should allocate parking spot to vehile.
 
 ## UML Diagram
-![UML](asset/ParkingSpot UML-1.png)
+![UML](./asset/ParkingSpot UML-1.png)
