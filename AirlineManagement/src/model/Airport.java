@@ -4,15 +4,20 @@ import java.lang.String;
 import java.util.ArrayList;
 
 public class Airport {
-    String name;
-    Address address;
-    String uniqueId;
-    List<Flight>flights = new ArrayList<>();
+    public String name;
+    public Address address;
+    public String uniqueId;
+    public List<Aircraft>flights = new ArrayList<Aircraft>();
 
-    public Airport(String name, Address address, String uniqueId, List<Flight> flights) {
+    public Airport(String name, Address address, String uniqueId) {
         this.name = name;
         this.address = address;
         this.uniqueId = uniqueId;
-        this.flights = flights;
+    }
+    public void addAircraft( Aircraft aircraft){
+        flights.add(aircraft);
+    }
+    public List<Aircraft> getAircraft(){
+        return  flights;
     }
 }

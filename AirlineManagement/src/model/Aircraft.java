@@ -1,10 +1,10 @@
 package model;
 
 public class Aircraft {
-    String name;
-    String model;
-    int seats;
-    String manufacturingYear;
+    public String name;
+    public String model;
+    public int seats;
+    public String manufacturingYear;
 
     public Aircraft(String name, String model, int seats, String manufacturingYear) {
         this.name = name;
@@ -12,4 +12,13 @@ public class Aircraft {
         this.seats = seats;
         this.manufacturingYear = manufacturingYear;
     }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+
 }
