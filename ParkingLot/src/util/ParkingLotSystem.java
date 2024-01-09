@@ -36,7 +36,7 @@ public class ParkingLotSystem {
         List<Ticket> tickets = new ArrayList<>();
         // create many vehicles and assign parking spots
         // after the lot is full we should not be able to park any more vehicles
-        for (int i = 0; i < 49; i++) {
+        for (int i = 0; i <40; i++) {
             // get random vehicle type
             Vehicle vehicle = dataGeneratorService.generateVehicle();
 

@@ -6,12 +6,12 @@ import java.util.List;
 public class ParkingLot {
     String parkingLotId;
     Address address;
-    PaymentCenter paymentCenter;
+    PaymentCenter paymentCenter; // This should be singleton
     ParkingRate parkingRate;
     List<ParkingFloor> parkingFloors = new ArrayList<>();
     List<EntryGate> entryGates = new ArrayList<>();
     List<ExitGate> exitGates = new ArrayList<>();
-    List<Ticket> tickets = new ArrayList<>();
+    List<Ticket> tickets = new ArrayList<>();// Data should not be mixed
 
     public ParkingLot(Address address) {
         this.parkingLotId = "PL" + System.currentTimeMillis();
@@ -32,9 +32,11 @@ public class ParkingLot {
         }
         return null;
     }
+
     public PaymentCenter getPaymentCenter(){
         return new PaymentCenter();
     }
+
     public boolean isParkingFull(){
         for(ParkingFloor parkingFloor : parkingFloors){
             if(parkingFloor.getAvailableParkingSpot()>0) return false;
@@ -49,14 +51,14 @@ public class ParkingLot {
     }
     public void addEntryGates(int count) {
         for (int j = 0; j < count; j++) {
-            // TBD: this can be parameterized later on
+
             entryGates.add(new EntryGate());
         }
     }
 
     public void addExitGates(int count) {
         for (int j = 0; j < count; j++) {
-            // TBD: this can be parameterized later on
+
             exitGates.add(new ExitGate());
         }
     }
