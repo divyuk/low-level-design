@@ -24,7 +24,7 @@
 
 ## 2. Create Use Diagram
 
-### a. Identify actors
+### a. Identify the actors
 
 1. Customers
 2. Staff
